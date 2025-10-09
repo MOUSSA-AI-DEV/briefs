@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="description"  content="esport play Contact">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Esports - Form Components</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-blue': '#00f3ff',
+                        'neon-purple': '#b967ff',
+                        'dark-bg': '#0a0a16',
+                        'card-bg': '#13132b',
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            'from': { boxShadow: '0 0 5px #00f3ff, 0 0 10px #00f3ff, 0 0 15px #00f3ff' },
+                            'to': { boxShadow: '0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a16;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #00f3ff, #b967ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00f3ff, #b967ff);
+            border-radius: 10px;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 243, 255, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00f3ff;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #00f3ff, #b967ff);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.4);
+        }
+        
+        .input-field {
+            background: rgba(19, 19, 43, 0.7);
+            border: 1px solid #2d2d5a;
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            border-color: #00f3ff;
+            box-shadow: 0 0 0 2px rgba(0, 243, 255, 0.2);
+        }
+        
+        .input-field:hover {
+            border-color: #4a4a7a;
+        }
+        
+        .checkbox:checked {
+            background-color: #00f3ff;
+            border-color: #00f3ff;
+        }
+        
+        .radio:checked {
+            background-color: #00f3ff;
+            border-color: #00f3ff;
+        }
+        
+        .toggle-bg:after {
+            content: '';
+            position: absolute;
+            top: 0.125rem;
+            left: 0.125rem;
+            background: white;
+            border-radius: 50%;
+            height: 1.25rem;
+            width: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:checked + .toggle-bg {
+            background: #00f3ff;
+        }
+        
+        input:checked + .toggle-bg:after {
+            transform: translateX(100%);
+        }
+        
+        .select-arrow {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+        }
+    </style>
+</head>
+<body>
+       <nav class="fixed w-full z-50 bg-dark-bg/80 backdrop-blur-md py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-orbitron font-bold gradient-text">NEXUS ESPORTS</h1>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="Home.html" class="nav-link">Home</a>
+                <a href="Features.html" class="nav-link">Features</a>
+                <a href="Games.html" class="nav-link">Games</a>
+                <a href="Teames.html" class="nav-link">Teams</a>
+                <a href="Tournament.html" class="nav-link">Tournaments</a>
+                <a href="Contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button
+                  onclick="window.location.href = 'Login.html'" 
+                 class="px-6 py-3 rounded-lg bg-card-bg hover:bg-neon-blue hover:text-dark-bg transition-all duration-300">Login</button>
+            <button
+             onclick="window.location.href = 'Sign_Up.html'" 
+             class="px-6 py-3 rounded-lg btn-primary text-dark-bg font-bold">Sign Up</button>
+
+                <button class="md:hidden text-xl mobile-menu-button" aria-label="name">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden">
+        <button class="mobile-menu-close"  aria-label="name">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="Home.html">Home</a>
+        <a href="Features.html">Features</a>
+        <a href="Games.html">Games</a>
+        <a href="Teames.html">Teams</a>
+        <a href="Tournament.html">Tournaments</a>
+        <a href="Contact.html">Contact</a>
+        <div class="mt-8 flex flex-col space-y-4">
+            <button
+                  onclick="window.location.href = 'Login.html'" 
+                 class="px-6 py-3 rounded-lg bg-card-bg hover:bg-neon-blue hover:text-dark-bg transition-all duration-300">Login</button>
+            <button
+             onclick="window.location.href = 'Sign_Up.html'" 
+             class="px-6 py-3 rounded-lg btn-primary text-dark-bg font-bold">Sign Up</button>
+        </div>
+    </div>
+
+
+ <section id="contact" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-4 section-title">CONTACT FORM</h2>
+            <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">Get in touch with the Nexus Esports team.</p>
+            
+            <div class="max-w-2xl mx-auto bg-card-bg p-8 rounded-xl border border-gray-800 card-hover">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-300 mb-2">First Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg input-field text-white" placeholder="John">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Last Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg input-field text-white" placeholder="Doe">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-300 mb-2">Email Address</label>
+                        <input type="email" class="w-full px-4 py-3 rounded-lg input-field text-white" placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div>
+                        <label for="select_object" class="block text-gray-300 mb-2">Subject</label>
+                        <select id="select_object" class="w-full px-4 py-3 rounded-lg input-field text-white select-arrow">
+                            <option>Select a subject</option>
+                            <option>General Inquiry</option>
+                            <option>Technical Support</option>
+                            <option>Partnership</option>
+                            <option>Tournament Registration</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-300 mb-2">Message</label>
+                        <textarea class="w-full px-4 py-3 rounded-lg input-field text-white h-40" placeholder="How can we help you?"></textarea>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input id="newsletter" type="checkbox" class="checkbox h-4 w-4 rounded text-neon-blue focus:ring-neon-blue" checked>
+                        <label for="newsletter" class="ml-2 text-gray-300">Subscribe to our newsletter for updates</label>
+                    </div>
+                    
+                    <button type="submit" class="w-full px-6 py-3 rounded-lg btn-primary text-dark-bg font-bold text-lg">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    </body>
+  <footer class="py-12 bg-card-bg border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-orbitron font-bold gradient-text">NEXUS ESPORTS</h2>
+                    <p class="text-gray-400 mt-2">The future of competitive gaming</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300" aria-label="name">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300" aria-label="name">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300" aria-label="name">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300" aria-label="name">
+                        <i class="fab fa-twitch text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300" aria-label="name">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Nexus Esports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/script.js"></script>
+</body>
+</html>
