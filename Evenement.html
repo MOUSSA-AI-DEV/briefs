@@ -1,0 +1,185 @@
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"  content="esport play">
+    <title>Nexus Esports - The Ultimate Gaming Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-blue': '#00f3ff',
+                        'neon-purple': '#b967ff',
+                        'dark-bg': '#0a0a16',
+                        'card-bg': '#13132b',
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            'from': { boxShadow: '0 0 5px #00f3ff, 0 0 10px #00f3ff, 0 0 15px #00f3ff' },
+                            'to': { boxShadow: '0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body class="font-inter">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark-bg/80 backdrop-blur-md py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-orbitron font-bold gradient-text">NEXUS ESPORTS</h1>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="Home.html" class="nav-link">Home</a>
+                <a href="Features.html" class="nav-link">Features</a>
+                <a href="Games.html" class="nav-link">Games</a>
+                <a href="Teames.html" class="nav-link">Teams</a>
+                <a href="Tournament.html" class="nav-link">Tournaments</a>
+                <a href="Evenement.html" class="nav-link">Evenement</a>
+                <a href="Contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button
+                  onclick="window.location.href = 'Login.html'" 
+                 class="px-6 py-3 rounded-lg bg-card-bg hover:bg-neon-blue hover:text-dark-bg transition-all duration-300">Login</button>
+            <button
+             onclick="window.location.href = 'Sign_Up.html'" 
+             class="px-6 py-3 rounded-lg btn-primary text-dark-bg font-bold">Sign Up</button>
+
+                <button class="md:hidden text-xl mobile-menu-button" aria-label="name">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden">
+        <button class="mobile-menu-close"  aria-label="name">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="Home.html">Home</a>
+        <a href="Features.html">Features</a>
+        <a href="Games.html">Games</a>
+        <a href="Teames.html">Teams</a>
+        <a href="Tournament.html">Tournaments</a>
+        <a href="Evenement.html" class="nav-link">Evenement</a>
+        <a href="Contact.html">Contact</a>
+          
+        <div class="mt-8 flex flex-col space-y-4">
+            <button
+                  onclick="window.location.href = 'Login.html'" 
+                 class="px-6 py-3 rounded-lg bg-card-bg hover:bg-neon-blue hover:text-dark-bg transition-all duration-300">Login</button>
+            <button
+             onclick="window.location.href = 'Sign_Up.html'" 
+             class="px-6 py-3 rounded-lg btn-primary text-dark-bg font-bold">Sign Up</button>
+        </div>
+    </div>
+
+<section id="games" class="py-16">
+        <div class="pt-2 container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-4 section-title">POPULAR EVENTS</h2>
+            <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">YOUR EVENTS IS WHITING</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="game-card h-80 rounded-xl overflow-hidden relative">
+                    <img src="assets/screens/image copy 2.png" alt="Valorant" class="w-full h-full object-cover">
+                    <div class="game-card-content absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold mb-2">Valorant</h3>
+                        <p class="text-gray-300 mb-4">Tactical FPS by Riot Games</p>
+                        <button class="px-4 py-2 rounded-lg bg-neon-blue text-dark-bg font-bold">Join Events</button>
+                    </div>
+                </div>
+                
+                <div class="game-card h-80 rounded-xl overflow-hidden relative">
+                    <img src="assets/screens/image copy 3.png" alt="League of Legends" class="w-full h-full object-cover">
+                    <div class="game-card-content absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold mb-2">League of Legends</h3>
+                        <p class="text-gray-300 mb-4">MOBA by Riot Games</p>
+                        <button class="px-4 py-2 rounded-lg bg-neon-blue text-dark-bg font-bold">Join Events</button>
+                    </div>
+                </div>
+                
+                <div class="game-card h-80 rounded-xl overflow-hidden relative">
+                    <img src="assets/screens/image copy 4.png" alt="CS:GO" class="w-full h-full object-cover">
+                    <div class="game-card-content absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold mb-2">Counter-Strike 2</h3>
+                        <p class="text-gray-300 mb-4">Tactical FPS by Valve</p>
+                        <button class="px-4 py-2 rounded-lg bg-neon-blue text-dark-bg font-bold">Join Events</button>
+                    </div>
+                </div>
+                
+                <div class="game-card h-80 rounded-xl overflow-hidden relative">
+                    <img src="assets/screens/image copy.png" alt="Fortnite" class="w-full h-full object-cover">
+                    <div class="game-card-content absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold mb-2">Fortnite</h3>
+                        <p class="text-gray-300 mb-4">Battle Royale by Epic Games</p>
+                        <button class="px-4 py-2 rounded-lg bg-neon-blue text-dark-bg font-bold">Join Events</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+     </section>
+
+</body>
+  </section>
+     <footer class="py-12 bg-card-bg border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-orbitron font-bold gradient-text">NEXUS ESPORTS</h2>
+                    <p class="text-gray-400 mt-2">The future of competitive gaming events</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300"  aria-label="name">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300"  aria-label="name">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>  
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300"  aria-label="name">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300"  aria-label="name">
+                        <i class="fab fa-twitch text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300"  aria-label="name">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Nexus Esports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>
